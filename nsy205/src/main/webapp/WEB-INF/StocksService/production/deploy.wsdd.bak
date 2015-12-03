@@ -1,0 +1,31 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from StocksService WSDL service -->
+
+  <service name="Stocks" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://production"/>
+      <parameter name="wsdlServiceElement" value="StocksService"/>
+      <parameter name="schemaQualified" value="http://production"/>
+      <parameter name="wsdlServicePort" value="Stocks"/>
+      <parameter name="className" value="production.StocksSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Stocks"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getQuantite" qname="operNS:getQuantite" xmlns:operNS="http://production" returnQName="retNS:getQuantiteReturn" xmlns:retNS="http://production" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setQuantite" qname="operNS:setQuantite" xmlns:operNS="http://production" soapAction="" >
+        <parameter qname="pns:quantite" xmlns:pns="http://production" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="setQuantite getQuantite"/>
+
+  </service>
+</deployment>

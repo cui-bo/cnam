@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://administration"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://administration"
+	xmlns:intf="http://administration" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">	<!--WSDL created by Apache Axis version: 1.4 Built on Apr 22, 2006 (06:55:48 
+		PDT) -->
+	<wsdl:types>
+		<schema elementFormDefault="qualified" targetNamespace="http://administration"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<element name="getDescription">
+				<complexType />
+			</element>
+			<element name="getDescriptionResponse">
+				<complexType>
+					<sequence>
+						<element name="getDescriptionReturn" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="setDescription">
+				<complexType>
+					<sequence>
+						<element name="description" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="setDescriptionResponse">
+				<complexType />
+			</element>
+			<element name="getPrix">
+				<complexType />
+			</element>
+			<element name="getPrixResponse">
+				<complexType>
+					<sequence>
+						<element name="getPrixReturn" type="xsd:double" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="setPrix">
+				<complexType>
+					<sequence>
+						<element name="prix" type="xsd:double" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="setPrixResponse">
+				<complexType />
+			</element>
+			<element name="getProduit_id">
+				<complexType />
+			</element>
+			<element name="getProduit_idResponse">
+				<complexType>
+					<sequence>
+						<element name="getProduit_idReturn" type="xsd:int" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="getProduit_idResponse">
+		<wsdl:part element="impl:getProduit_idResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getDescriptionRequest">
+		<wsdl:part element="impl:getDescription" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="setPrixResponse">
+		<wsdl:part element="impl:setPrixResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getProduit_idRequest">
+		<wsdl:part element="impl:getProduit_id" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getDescriptionResponse">
+		<wsdl:part element="impl:getDescriptionResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getPrixRequest">
+		<wsdl:part element="impl:getPrix" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="setDescriptionRequest">
+		<wsdl:part element="impl:setDescription" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getPrixResponse">
+		<wsdl:part element="impl:getPrixResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="setDescriptionResponse">
+		<wsdl:part element="impl:setDescriptionResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="setPrixRequest">
+		<wsdl:part element="impl:setPrix" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="Produits">
+		<wsdl:operation name="getDescription">
+			<wsdl:input message="impl:getDescriptionRequest" name="getDescriptionRequest">
+			</wsdl:input>
+			<wsdl:output message="impl:getDescriptionResponse" name="getDescriptionResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setDescription">
+			<wsdl:input message="impl:setDescriptionRequest" name="setDescriptionRequest">
+			</wsdl:input>
+			<wsdl:output message="impl:setDescriptionResponse" name="setDescriptionResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getPrix">
+			<wsdl:input message="impl:getPrixRequest" name="getPrixRequest">
+			</wsdl:input>
+			<wsdl:output message="impl:getPrixResponse" name="getPrixResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setPrix">
+			<wsdl:input message="impl:setPrixRequest" name="setPrixRequest">
+			</wsdl:input>
+			<wsdl:output message="impl:setPrixResponse" name="setPrixResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getProduit_id">
+			<wsdl:input message="impl:getProduit_idRequest" name="getProduit_idRequest">
+			</wsdl:input>
+			<wsdl:output message="impl:getProduit_idResponse" name="getProduit_idResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ProduitsSoapBinding" type="impl:Produits">
+		<wsdlsoap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getDescription">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="getDescriptionRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getDescriptionResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setDescription">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="setDescriptionRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="setDescriptionResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getPrix">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="getPrixRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getPrixResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setPrix">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="setPrixRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="setPrixResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getProduit_id">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="getProduit_idRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getProduit_idResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ProduitsService">
+		<wsdl:port binding="impl:ProduitsSoapBinding" name="Produits">
+			<wsdlsoap:address location="http://tempuri.org/nsy205/services/Produits" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

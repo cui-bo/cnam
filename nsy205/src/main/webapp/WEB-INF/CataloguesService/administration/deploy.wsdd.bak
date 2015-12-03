@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CataloguesService WSDL service -->
+
+  <service name="Catalogues" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://administration"/>
+      <parameter name="wsdlServiceElement" value="CataloguesService"/>
+      <parameter name="schemaQualified" value="http://administration"/>
+      <parameter name="wsdlServicePort" value="Catalogues"/>
+      <parameter name="className" value="administration.CataloguesSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Catalogues"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getCatalogue_id" qname="operNS:getCatalogue_id" xmlns:operNS="http://administration" returnQName="retNS:getCatalogue_idReturn" xmlns:retNS="http://administration" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setCatalogue" qname="operNS:setCatalogue" xmlns:operNS="http://administration" soapAction="" >
+        <parameter qname="pns:catalogue" xmlns:pns="http://administration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getCatalogue" qname="operNS:getCatalogue" xmlns:operNS="http://administration" returnQName="retNS:getCatalogueReturn" xmlns:retNS="http://administration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getCatalogue getCatalogue_id setCatalogue"/>
+
+  </service>
+</deployment>

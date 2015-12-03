@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProduitsService WSDL service -->
+
+  <service name="Produits" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://administration"/>
+      <parameter name="wsdlServiceElement" value="ProduitsService"/>
+      <parameter name="schemaQualified" value="http://administration"/>
+      <parameter name="wsdlServicePort" value="Produits"/>
+      <parameter name="className" value="administration.ProduitsSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Produits"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getDescription" qname="operNS:getDescription" xmlns:operNS="http://administration" returnQName="retNS:getDescriptionReturn" xmlns:retNS="http://administration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setDescription" qname="operNS:setDescription" xmlns:operNS="http://administration" soapAction="" >
+        <parameter qname="pns:description" xmlns:pns="http://administration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getPrix" qname="operNS:getPrix" xmlns:operNS="http://administration" returnQName="retNS:getPrixReturn" xmlns:retNS="http://administration" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setPrix" qname="operNS:setPrix" xmlns:operNS="http://administration" soapAction="" >
+        <parameter qname="pns:prix" xmlns:pns="http://administration" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getProduit_id" qname="operNS:getProduit_id" xmlns:operNS="http://administration" returnQName="retNS:getProduit_idReturn" xmlns:retNS="http://administration" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getPrix getProduit_id setDescription getDescription setPrix"/>
+
+  </service>
+</deployment>

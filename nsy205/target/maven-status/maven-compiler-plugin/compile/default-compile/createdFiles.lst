@@ -1,4 +1,6 @@
 production/Stocks.class
+administration/Administration.class
 administration/Produits.class
 administration/Catalogues.class
 agencevente/Vente.class
+production/Production.class

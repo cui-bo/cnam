@@ -16,6 +16,4 @@ public class Catalogues {
 		this.catalogue = catalogue;
 	}
 	
-	
-	
 }

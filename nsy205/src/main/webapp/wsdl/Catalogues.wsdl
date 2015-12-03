@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://administration"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://administration"
+	xmlns:intf="http://administration" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><!--WSDL 
+		created by Apache Axis version: 1.4Built on Apr 22, 2006 (06:55:48 PDT) -->
+	<wsdl:types>
+		<schema elementFormDefault="qualified" targetNamespace="http://administration"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<element name="getCatalogue_id">
+				<complexType />
+			</element>
+			<element name="getCatalogue_idResponse">
+				<complexType>
+					<sequence>
+						<element name="getCatalogue_idReturn" type="xsd:int" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="setCatalogue">
+				<complexType>
+					<sequence>
+						<element name="catalogue" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="setCatalogueResponse">
+				<complexType />
+			</element>
+			<element name="getCatalogue">
+				<complexType />
+			</element>
+			<element name="getCatalogueResponse">
+				<complexType>
+					<sequence>
+						<element name="getCatalogueReturn" type="xsd:string" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="getCatalogueResponse">
+		<wsdl:part element="impl:getCatalogueResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="setCatalogueResponse">
+		<wsdl:part element="impl:setCatalogueResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getCatalogue_idRequest">
+		<wsdl:part element="impl:getCatalogue_id" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getCatalogue_idResponse">
+		<wsdl:part element="impl:getCatalogue_idResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="setCatalogueRequest">
+		<wsdl:part element="impl:setCatalogue" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getCatalogueRequest">
+		<wsdl:part element="impl:getCatalogue" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="Catalogues">
+		<wsdl:operation name="getCatalogue_id">
+			<wsdl:input message="impl:getCatalogue_idRequest" name="getCatalogue_idRequest">
+			</wsdl:input>
+			<wsdl:output message="impl:getCatalogue_idResponse" name="getCatalogue_idResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCatalogue">
+			<wsdl:input message="impl:setCatalogueRequest" name="setCatalogueRequest">
+			</wsdl:input>
+			<wsdl:output message="impl:setCatalogueResponse" name="setCatalogueResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCatalogue">
+			<wsdl:input message="impl:getCatalogueRequest" name="getCatalogueRequest">
+			</wsdl:input>
+			<wsdl:output message="impl:getCatalogueResponse" name="getCatalogueResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CataloguesSoapBinding" type="impl:Catalogues">
+		<wsdlsoap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getCatalogue_id">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="getCatalogue_idRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getCatalogue_idResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="setCatalogue">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="setCatalogueRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="setCatalogueResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getCatalogue">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="getCatalogueRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getCatalogueResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="CataloguesService">
+		<wsdl:port binding="impl:CataloguesSoapBinding" name="Catalogues">
+			<wsdlsoap:address location="http://tempuri.orgsy205/services/Catalogues" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
