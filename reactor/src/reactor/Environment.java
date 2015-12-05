@@ -17,13 +17,11 @@ public class Environment extends Thread {
 		int compteurClickEvent = 1;
 		int compteurMessageEvent = 1;
 		
-		
 		for (int i = 0; i < FOIS; i++) {
 			
 			synchronized (reactor) {	// Traitement Click event
 				Handle handleClick = new Handle();
-				handleClick.setEvent(
-						new EventObject(EnumEventType.ClickEvent + "_" + compteurClickEvent));
+				handleClick.setEvent(new EventObject(EnumEventType.ClickEvent + "_" + compteurClickEvent));
 				handleClick.setKey(EnumEventType.ClickEvent.toString());
 				reactor.receive(handleClick);
 				compteurClickEvent++;
@@ -31,8 +29,7 @@ public class Environment extends Thread {
 			
 			synchronized (reactor) {	// Traitement Message event
 				Handle handleMessage = new Handle();
-				handleMessage.setEvent(
-						new EventObject(EnumEventType.MessageEvent + "_" + compteurMessageEvent));
+				handleMessage.setEvent(new EventObject(EnumEventType.MessageEvent + "_" + compteurMessageEvent));
 				handleMessage.setKey(EnumEventType.MessageEvent.toString());
 				reactor.receive(handleMessage);
 				compteurMessageEvent++;

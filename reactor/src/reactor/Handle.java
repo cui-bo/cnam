@@ -8,10 +8,6 @@ public class Handle {
 	
 	private EventObject event;
 
-	public Handle() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String getKey() {
 		return key;
 	}
@@ -26,6 +22,11 @@ public class Handle {
 
 	public void setEvent(EventObject event) {
 		this.event = event;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return this.getKey().equals(((Handle)obj).getKey());
 	}
 
 }
